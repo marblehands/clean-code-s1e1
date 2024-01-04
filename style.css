@@ -12,9 +12,13 @@
 }
 .header .header-img {
   width: 100%;
+  display: block;
 }
 .header .more-info {
   font-family: "fantasy", cursive;
+}
+.section-add {
+  margin: 16px 0;
 }
 
 @media (max-width: 768px) {
@@ -34,14 +38,16 @@
   flex-grow: 1;
 }
 .task-row-wrapper {
+  margin-top: 20px;
   display: flex;
 }
+h1,
+h2,
 ul {
   margin: 0;
   padding: 0px;
 }
-li,
-h3 {
+li {
   list-style: none;
 }
 input,
@@ -74,7 +80,7 @@ button {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
-  height: 21px;
+  height: 19px;
   padding: 0 9px;
   border: 1px solid #ddd;
   background: #fff;
@@ -87,7 +93,7 @@ button {
 }
 
 /* New Task */
-#section-header .section-title {
+.section-add .section-title {
   display: block;
   margin: 0 0 20px;
 }
@@ -120,7 +126,13 @@ button {
 .list-item > .input-text {
   width: 226px;
 }
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .delete-icon {
+  display: block;
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
@@ -147,4 +159,10 @@ button {
 
 .edit-mode .task-label {
   display: none;
+}
+
+.hidden {
+  position: absolute;
+  visibility: hidden;
+  transform: scale(0);
 }
