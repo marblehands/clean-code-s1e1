@@ -32,23 +32,23 @@ var createNewTaskElement=function(taskString){
     var deleteButton=document.createElement("button");//delete button
     var deleteButtonImg=document.createElement("img");//delete button image
 
-    listItem.className = 'list-item';
+    listItem.className = 'section__list-item';
 
     label.innerText=taskString;
-    label.className='task-label';
+    label.className='section__task-label';
 
     //Each elements, needs appending
     checkBox.type="checkbox";
-    checkBox.className="input-checkbox";
+    checkBox.className="section__input-checkbox";
     editInput.type="text";
-    editInput.className="input-text";
+    editInput.className="section__input-text";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="btn edit";
+    editButton.className="section__btn section__btn_edit";
 
-    deleteButton.className="btn delete";
+    deleteButton.className="section__btn section__btn_delete";
     deleteButtonImg.src='./remove.svg';
-    deleteButtonImg.className = 'delete-icon';
+    deleteButtonImg.className = 'section__btn-icon';
     deleteButtonImg.alt = '';
     deleteButton.appendChild(deleteButtonImg);
 
@@ -89,12 +89,12 @@ var editTask=function(){
 
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".edit");
-    var containsClass=listItem.classList.contains("edit-mode");
-    //If class of the parent is .edit-mode
+    var editBtn=listItem.querySelector(".section__btn_edit");
+    var containsClass=listItem.classList.contains("section__list-item_edit-mode");
+    //If class of the parent is .section__list-item_edit-mode
     if(containsClass){
 
-        //switch to .edit-mode
+        //switch to .section__list-item_edit-mode
         //label becomes the inputs value.
         label.innerText=editInput.value;
         editBtn.innerText="Edit";
@@ -103,8 +103,8 @@ var editTask=function(){
         editBtn.innerText="Save";
     }
 
-    //toggle .edit-mode on the parent.
-    listItem.classList.toggle("edit-mode");
+    //toggle .section__list-item_edit-mode on the parent.
+    listItem.classList.toggle("section__list-item_edit-mode");
 };
 
 
@@ -161,8 +161,8 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
     var checkBox=taskListItem.querySelector("input[type=checkbox]");
-    var editButton=taskListItem.querySelector("button.edit");
-    var deleteButton=taskListItem.querySelector("button.delete");
+    var editButton=taskListItem.querySelector("button.section__btn_edit");
+    var deleteButton=taskListItem.querySelector("button.section__btn_delete");
 
 
     //Bind editTask to edit button.
